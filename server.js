@@ -1,11 +1,15 @@
 const express = require("express"); 
 const mongoose = require("mongoose"); 
+const customerController = require("./controllers/CustomerController.js"); 
 
 if(process.env.NODE_ENV!=="production"){
     require("dotenv").config({path:"config/keys.env"}); 
 }
 
 const app = express(); 
+
+app.use(express.json()); 
+app.use("/customers", customerController); 
 
 app.listen(process.env.PORT, async()=>{
     console.log(`Web Server is up and running on PORT ${process.env.PORT}!`); 
