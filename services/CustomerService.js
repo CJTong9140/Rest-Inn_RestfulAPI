@@ -1,3 +1,4 @@
+const customerModel = require("../models/CustomerModel.js"); 
 
 exports.createACustomer = (req, res) =>{
     res.json({
