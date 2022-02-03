@@ -5,14 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js", 
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "CJ Jingren Tong",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mongoose": "^6.2.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",
