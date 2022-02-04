@@ -22,7 +22,7 @@ exports.createACustomer = async(req, res) =>{
         }
     }
     catch(err){
-        res.status(500).json({
+        res.status(502).json({
             message: `There was an error encrypting the password.`
         })
     }

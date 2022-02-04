@@ -22,7 +22,7 @@ const customerSchema = new Schema({
     phoneNumbers : [{
         type: String
     }]
-}); 
+}, {timestamps: true}); 
 
 // Create a model
 const Customer = mongoose.model('Customer', customerSchema);
