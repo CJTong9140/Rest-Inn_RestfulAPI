@@ -65,12 +65,12 @@ exports.getAllPropertiesTypes = (req, res) => {
 */
 // Retrieve a specific property by id
 exports.getAProperty = async (req, res) => {
-    // Validate the ID
+    // Validate the ID in validation.js
     try {
         const property = await propertyModel.findById(req.params.id);
         if (property) {
             res.json({
-                message: `Property with ID ${req.params.id}`,
+                message: `Property with ID ${req.params.id}.`,
                 result: property
             })
         }
@@ -83,7 +83,7 @@ exports.getAProperty = async (req, res) => {
     catch(err){
         if (err.name === "CastError" && err.kind === "ObjectId") {
             res.status(404).json({
-                message: `There is no property in our database with id ${req.params.id}`
+                message: `There is no property in our database with id ${req.params.id}.`
             })
         }
         else {
@@ -95,13 +95,48 @@ exports.getAProperty = async (req, res) => {
 };
 
 // Update a property by id
-exports.updateAProperty = (req, res) => {
-
+exports.updateAProperty = async (req, res) => {
+    // Validate the ID in validation.js
+    try{
+        const newProperty = await propertyModel.findByIdAndUpdate(req.params.id, req.body, {new : true});
+        if(newProperty){
+            res.json({
+                message: `The property with id ${req.params.id} was updated.`, 
+                data: newProperty
+            })
+        }
+        else{
+            res.status(404).json({
+                message: `There is no property in the Rest-Inn database with id ${req.params.id}.`
+            })
+        }
+    }
+    catch(err){
+        res.status(500).json({
+            message: err
+        })
+    }
 };
 
 // Delete a property by id
-exports.deleteAProperty = (req, res) => {
-
+exports.deleteAProperty = async (req, res) => {
+    try{
+        const property = await propertyModel.findByIdAndRemove(req.params.id); 
+        if(property){
+            res.json({
+                message: `The property with ID ${req.params.id} was deleted from database successfully.`
+            })
+        }else{
+            res.status(404).json({
+                message: `Property with ID ${req.params.id} was not found in the database`
+            })
+        }
+    }
+    catch(err){
+        res.status(500).json({
+            message: err
+        })
+    }
 }
 
 
