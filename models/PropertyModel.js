@@ -41,5 +41,5 @@ const propertySchema = new Schema({
 // Creating a Property Model
 const Property = mongoose.model('Property', propertySchema); 
 
-module.exports = SuperHero; 
+module.exports = Property; 
 
