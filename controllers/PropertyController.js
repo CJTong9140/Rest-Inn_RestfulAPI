@@ -1,11 +1,11 @@
 const express = require("express"); 
 const propertyService = require("../services/PropertyService.js");
-
+const propertyValidation = require("../middleware/validation.js"); 
 const propertyRouter = express.Router(); 
 
 // Middleware that is specific to this router
 // Create Property to database
-propertyRouter.post("/properties", propertyService.createAProperty); 
+propertyRouter.post("/properties", propertyValidation.createPropertyValidation, propertyService.createAProperty); 
 
 // Get all properties in database
 // Get all properties that belong to a specified property type in database. 
