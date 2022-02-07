@@ -8,6 +8,6 @@ const CustomerRouter = express.Router();
 CustomerRouter.post("/", customerValidation.createCustomerValidation, customerService.createACustomer); 
 
 // Retrieve a specific customer by id
-CustomerRouter.get("/:id", customerService.getACustomer);
+CustomerRouter.get("/:id", customerValidation.idValidation, customerService.getACustomer);
 
 module.exports = CustomerRouter; 

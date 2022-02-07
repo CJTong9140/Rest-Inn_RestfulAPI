@@ -33,18 +33,28 @@ exports.getProperties = async (req, res) => {
     if (req.query.location) {
         queryString.location = req.query.location;
     }
-
-    if (req.query.isBestseller) {
+   
+    if(req.query.isBestseller === "true" || req.query.isBestseller === "false"){
         queryString.isBestseller = req.query.isBestseller;
     }
+   
+    const urlParams = new URLSearchParams(req.query);
 
     try {
         const properties = await propertyModel.find(queryString);
-        res.json({
-            message: `A list of Properties: `,
-            data: properties,
-            totalProperies: properties.length
-        });
+        
+        if(urlParams.toString() !== "" && Object.keys(queryString).length === 0){
+            res.status(404).json({
+                message: `Cannot access properties based on your request. Please modify your query string again.`
+            })
+        }else{
+            res.json({
+                message: `A list of Properties: `,
+                data: properties,
+                totalProperies: properties.length
+            });
+        }
+
     }
     catch (err) {
         res.status(500).json({

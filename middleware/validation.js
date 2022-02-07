@@ -84,6 +84,19 @@ exports.createCustomerValidation = (req, res, next) =>{
     }
 };
 
+// Validation for the id in route parameter
+exports.idValidation = (req, res, next) =>{
+    const idFormat = /^[a-zA-Z0-9]*$/;
+    if(!idFormat.test(req.params.id) || req.params.id.length !== 24){
+        res.status(404).json({
+            message: `Id ${req.params.id} is not valid. Please enter the valid id.`
+        })
+    }
+    else{
+        next(); 
+    }
+}
+
 // Validation for the property creation
 exports.createPropertyValidation = (req, res, next) =>{
     const errors = [];
@@ -219,4 +232,5 @@ exports.createPropertyValidation = (req, res, next) =>{
         next(); 
     }
 }
+
 
