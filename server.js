@@ -2,7 +2,7 @@
 * WEB422 Rest-Inn RESTful API Assignment 1
 *
 * Name: CJ Jingren Tong     Student ID: 152464194    Date: February 6th, 2022
-* Online (Heroku) Link: 
+* Online (Heroku) Link: https://calm-forest-34725.herokuapp.com/
 * ********************************************************************************/
 
 const express = require("express"); 
