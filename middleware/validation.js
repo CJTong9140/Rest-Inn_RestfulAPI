@@ -10,7 +10,6 @@ exports.createCustomerValidation = (req, res, next) =>{
     else{
         const firstNameFormat = /^[a-z A-Z]+$/;
         if(!firstNameFormat.test(req.body.firstName) || req.body.firstName.trim().length === 0){
-            console.log("First name tested");
             errors.push({
                 field: "firstName", 
                 message: `Please enter a valid first name.`
@@ -25,9 +24,8 @@ exports.createCustomerValidation = (req, res, next) =>{
         })
     }
     else{
-        const lastNameFormat = /^[a-z A-Z]+$/;
+        const lastNameFormat = /^[a-z A-Z-]+$/;
         if(!lastNameFormat.test(req.body.lastName) || req.body.lastName.trim().length === 0){
-            console.log("Last name tested");
             errors.push({
                 field: "lastName", 
                 message: `Please enter a valid last name.`
@@ -44,7 +42,6 @@ exports.createCustomerValidation = (req, res, next) =>{
     else{
         const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.){1,2}[a-zA-Z]{2,}))$/;
         if(!emailFormat.test(req.body.email)){
-            console.log("Email tested");
             errors.push({
                 field: "email", 
                 message: `Please enter a valid email.`
@@ -67,7 +64,6 @@ exports.createCustomerValidation = (req, res, next) =>{
                     field: "phoneNumbers", 
                     message: `Please enter a valid phone number.`
                 });
-                console.log("phone number tested");
                 break; 
             }
         }
@@ -107,7 +103,7 @@ exports.createPropertyValidation = (req, res, next) =>{
         })
     }
     else{
-        const propertyTitleFormat = /^[a-zA-Z0-9 ,]*$/;
+        const propertyTitleFormat = /^[a-zA-Z0-9 .]*$/;
         if(!propertyTitleFormat.test(req.body.propertyTitleFormat) || req.body.propertyTitle.trim().length === 0){
             errors.push({
                 field: "propertyTitle", 
@@ -204,7 +200,6 @@ exports.createPropertyValidation = (req, res, next) =>{
     }
     else{
         if(toString(req.body.isBestseller) !== "true" && toString(req.body.isBestseller) !== "false" && toString.call(req.body.isBestseller) !== '[object Boolean]'){
-            console.log("testing");
             errors.push({
                 field: "isBestseller",
                 message: `Please enter true or false to indicate if the property is the bestseller.`
