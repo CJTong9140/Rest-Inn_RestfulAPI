@@ -3,6 +3,7 @@
 *
 * Name: CJ Jingren Tong     Student ID: 152464194    Date: February 6th, 2022
 * Online (Heroku) Link: https://calm-forest-34725.herokuapp.com/
+* GitHub Link: https://github.com/CJTong9140/Rest-Inn_RestfulAPI.git
 * ********************************************************************************/
 
 const express = require("express"); 
