@@ -4,7 +4,7 @@ I have created a simple RESTful API for a short-term rental company. This applic
 incoming HTTP requestS and return HTTP responses in JSON format, by using HTTP methods (GET, PUT, DELETE, POST).
 The travel rental booking web application is able to allow users/administrators to create, retrieve, update, and delete certain data records. 
 
-# ***Customer***
+## ***Customer***
 
 ## End Points
 ### POST /customers
@@ -43,7 +43,7 @@ fields are mandatory and cannot be empty (OR only contain spaces).
 ### User Retrieval
 When retrieving a specific customer information by id, req.params.id also contain validation logic before retrieval. The IDs are being generated automatically by MongoDB, it contains 12-byte ObjectId value, which is a 24 characters string. Anything that is not 24 characters will be determined as invalid. All ids contain numbers and alphabets, any special characters is not allowed to include in the route parameter id. 
 
-***Property***
+## ***Property***
 
 ## End Points
 ### POST /properties
