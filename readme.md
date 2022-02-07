@@ -143,7 +143,7 @@ Also, for isBestseller, only true or false can be filtered from all records in d
 ID will also be validate before the action being taken, same method being used as "Retrieve by ID"
 
 ## Rules to Set up Application
-1. Clone the source code by running: **git clone GITHUP_PROJECT_URL .**
+1. Clone the source code by running: **git clone GITHUB_PROJECT_URL .**
 2. After cloning, all third party dependencies and devDependencies should be reinstalled, **npm install** or **npm i**
 3. Ensure that a folder named **config** being created
 4. Create a file called **keys.env** inside of the **config** folder
