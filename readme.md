@@ -4,7 +4,7 @@ I have created a simple RESTful API for a short-term rental company. This applic
 incoming HTTP requestS and return HTTP responses in JSON format, by using HTTP methods (GET, PUT, DELETE, POST).
 The travel rental booking web application is able to allow users/administrators to create, retrieve, update, and delete certain data records. 
 
-***Customer***
+# ***Customer***
 
 ## End Points
 ### POST /customers
